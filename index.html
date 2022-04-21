@@ -10,7 +10,10 @@
 </head>
 <body>
 
-    <div id="app">
+    <div id="app" tabindex="0"
+        @mouseover="stopAutoScroll"
+        @mouseleave="autoScroll"
+        >
 
         <div class="container" >
             <div class="slider-wrapper" tabindex="0">
@@ -26,8 +29,9 @@
                 <div class="thumbs">
                     <div class="prev" @click="prevSlide"></div>
                     <div class="next" @click="nextSlide"></div>
-                    <div class="thumb" :class="{'active' : index === activeIndex}" v-for="(thumb, index) in slides">
-                        <img :src="slides[activeIndex].image" :alt="slides[activeIndex].title"/>
+                    <div class="thumb" :class="{'active' : index === activeIndex}" v-for="(thumb, index) in slides" >
+                    <!--@click="clickThum"-->
+                        <img :src="thumb.image" :alt="thumb.title"/>
                     </div>
                     <!-- <div class="thumb">
                         <img src="img/02.jpg" alt="Svizzera" />

@@ -48,8 +48,8 @@ const app = new Vue({
     },
 
 // console.log(app);
-    methods:{
-        nextSlide(){
+    methods: {
+        nextSlide() {
             // In versione ternaria => this.activeIndex = (this.activeIndex === 4) ? 0 : this.activeIndex +=1;
             if (this.activeIndex === 4) {
                 this.activeIndex = 0;
@@ -57,23 +57,28 @@ const app = new Vue({
                 this.activeIndex += 1;
             }
         },
-        prevSlide(){
+        prevSlide() {
             if (this.activeIndex === 0) {
                 this.activeIndex = 4;
             } else {
                 this.activeIndex -= 1;
             }
         },
-        autoScroll(){
-            this.intervalId = setInterval(()=>{
+        autoScroll() {
+            this.intervalId = setInterval(() => {
                 this.nextSlide();
             }, 3000)
         },
-        stopAutoScroll(){
+        stopAutoScroll() {
             clearInterval(this.intervalId);
             this.intervalId = null;
-        }
-    },
+        },
+        // clickThumb() {
+        //     if (this.activeIndex == 'active') {
+        //         thumb.index == slides.index
+        //     } 
+        // }
+    }
 
 
 })
